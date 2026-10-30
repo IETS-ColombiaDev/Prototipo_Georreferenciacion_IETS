@@ -1,0 +1,64 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Comenzar · Observatorio IETS</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.75 "Segoe UI",Arial,sans-serif;color:#19374a;background:#f3f7f8}header{background:#123d5a;color:white;padding:32px max(24px,calc((100vw - 1120px)/2));border-bottom:5px solid #21b6b2}header p{margin:0;font-size:12px;letter-spacing:1.4px;text-transform:uppercase}header b{font-size:24px;display:block;margin-top:5px}nav.tabs{background:white;border-bottom:1px solid #dce7ec;display:flex;gap:25px;padding:16px max(24px,calc((100vw - 1120px)/2));flex-wrap:wrap}a{color:#147fae;text-underline-offset:3px}.tabs a{font-size:13px;font-weight:600;text-decoration:none}.layout{max-width:1168px;margin:32px auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:30px;padding:0 24px}.toc{align-self:start;position:sticky;top:25px;font-size:12px;line-height:1.5}.toc b{display:block;margin-bottom:15px;text-transform:uppercase;font-size:10px;letter-spacing:1px;color:#16877f}.toc a{display:block;text-decoration:none;color:#526d7d;padding:6px 0}.paper{background:white;border:1px solid #dce7ec;border-radius:12px;padding:40px;min-width:0}h1{font-size:34px;line-height:1.2;letter-spacing:-.7px;color:#123d5a;margin-top:0}h2{font-size:23px;line-height:1.3;color:#123d5a;margin-top:38px;scroll-margin-top:25px}p{margin:14px 0}li{margin:9px 0}table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.6;margin:22px 0}th,td{padding:12px 14px;border:1px solid #d8e3e7;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f2f6;color:#173e55}tr:nth-child(even) td{background:#f8fafb}pre{padding:20px;background:#f1f5f7;border-radius:8px;overflow:auto;font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}code{font-family:Consolas,monospace;font-size:.9em}footer{max-width:1120px;margin:30px auto;padding:25px;border-top:1px solid #dce7ec;font-size:12px;color:#637e8a}@media(max-width:800px){.layout{display:block;padding:0 14px}.toc{position:static;margin-bottom:25px}.paper{padding:25px}h1{font-size:28px}table{font-size:11px}th,td{padding:8px}.tabs{gap:12px!important}}@media print{body{background:white;font-size:11pt;line-height:1.55}header,.tabs,.toc,footer{display:none!important}.layout{display:block;margin:0;padding:0}.paper{border:0;padding:0}h1,h2{color:black}h1{font-size:22pt}h2{font-size:15pt;break-after:avoid}p,li{orphans:3;widows:3}table{font-size:9pt}tr{break-inside:avoid}pre{font-size:9pt}@page{margin:20mm}}</style><header><p>Observatorio IETS · Prototipo local</p><b>Guía de apertura y entrega</b></header><div class="layout"><aside class="toc"><b>Contenido</b><a href="#abrir">Abrir</a><a href="#cargar-la-misma-carpeta-de-microplanificacion">Cargar la misma carpeta de microplanificación</a><a href="#modulos">Módulos</a><a href="#manuales">Manuales</a><a href="#guardar-y-trasladar">Guardar y trasladar</a><a href="#archivos-principales">Archivos principales</a><a href="#desarrollo-y-verificacion">Desarrollo y verificación</a><a href="#alcance">Alcance</a></aside><main class="paper"><h1 id="georreferenciacion-para-la-accion">Georreferenciación para la acción</h1>
+<p><strong>Observatorio IETS · Colombia · Prototipo local 1.0.0 · 30 de octubre de 2026</strong></p>
+<p>Geoportal y herramienta de trabajo territorial para continuidad de la atención de enfermedades crónicas. Lee <strong>la misma carpeta de microplanificación</strong>, conserva su estructura y permite documentar evidencia y acciones. La entrega incluye Cali preparado con datos del repositorio real.</p>
+<h2 id="abrir">Abrir</h2>
+<ol>
+<li>Haga doble clic en <strong>INICIAR.bat</strong>. El entorno necesario ya está preparado para este equipo.</li>
+<li>Entre en <strong>Repositorio</strong>. La ruta de COL y los filtros <strong>Valle del Cauca → Cali</strong> están listos.</li>
+<li>Pulse <strong>Abrir geoportal cargado</strong> para ver el ejemplo; use <strong>Leer repositorio → Generar geoportal de Cali</strong> para volver a leer los archivos.</li>
+</ol>
+<p>El servidor funciona únicamente en este equipo, en http://127.0.0.1:8516. Mantenga abierta su consola y ciérrela con Ctrl+C al terminar. No se publica en internet.</p>
+<h2 id="cargar-la-misma-carpeta-de-microplanificacion">Cargar la misma carpeta de microplanificación</h2>
+<ol>
+<li>Abra <strong>INICIAR.bat</strong>. Entre en <strong>Repositorio</strong>.</li>
+<li>La ruta inicial es <code>D:\00000-PAHO-OMS\0-Priorizacion\COL</code>. También puede elegir su carpeta principal o usar <strong>Explorar carpetas</strong>.</li>
+<li>Pulse <strong>Leer repositorio</strong>. Se conserva su estructura: no convierta ni renombre los archivos.</li>
+<li>Revise las capas detectadas, sus categorías y el campo que contiene el nombre. Las versiones alternativas no se fusionan automáticamente; evite duplicados.</li>
+<li>Mantenga <strong>Valle del Cauca → Cali</strong> y pulse <strong>Generar geoportal de Cali</strong>. El servidor recorta las capas con el límite municipal del propio repositorio.</li>
+<li>En <strong>Geoportal</strong>, active las capas, busque un nombre y consulte sus atributos y fuente. Cambiar filtros no vuelve a leer el disco: para otro municipio o área, regrese a Repositorio y genere ese ámbito.</li>
+</ol>
+<p>La entrega ya incluye el recorte de Cali: <strong>12 capas, 49.343 elementos, 1.091 registros de salud y 42 localidades</strong>. Son conteos de los archivos leídos, sin deduplicación entre fuentes ni certificación de cobertura. Incluye educación, ríos, sitios de interés, vías y las tres accesibilidades nacionales recortadas. La red contiene 42.842 elementos. Los archivos originales se leen; los recortes y la caché se guardan en el prototipo.</p>
+<p>Las sedes se inician como <strong>Sin verificar</strong>, sin asignación automática de condición crónica, servicio ni perfil. Abra su ficha y use <strong>Caracterizar para ECNT</strong>, con soporte de verificación, para habilitar esos filtros. Una localidad es una referencia geográfica; no se convierte en una necesidad clínica ni en una estimación de enfermedad. La recarga conserva la caracterización de identificadores estables que vuelvan a aparecer; respalde el trabajo antes de cambiar fuentes.</p>
+<p>Las capas de accesibilidad conservan <code>category</code>, <code>range_type</code> y <code>range</code>: en estas fuentes TIME está en segundos y DISTANCE en metros. Se muestran separadas de las capas caracterizadas por servicio de ECNT. Los atributos poblacionales pertenecen al ámbito original; no se recalculan para Cali y no se deben sumar entre umbrales.</p>
+<h2 id="modulos">Módulos</h2>
+<div class="table"><table><thead><tr><th>Módulo</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td>Repositorio</td><td>Elegir la carpeta, detectar capas y generar el recorte territorial.</td></tr>
+<tr><td>Geoportal</td><td>Activar capas, buscar lugares y consultar atributos de origen.</td></tr>
+<tr><td>Oferta y acceso</td><td>Consultar sedes, caracterizar servicios y comparar distancias y red.</td></tr>
+<tr><td>Priorización</td><td>Comparar indicadores aportados y pesos explícitos; los faltantes no se convierten en cero.</td></tr>
+<tr><td>Evidencia y guías</td><td>Registrar preguntas, referencias, síntesis y revisión editorial.</td></tr>
+<tr><td>Acciones</td><td>Documentar alternativas, responsables, plazos y verificación de cierre.</td></tr>
+<tr><td>Datos y paquetes</td><td>Incorporar insumos propios, respaldar y exportar consulta territorial autónoma.</td></tr>
+</tbody></table></div>
+<p>Colombia es el ámbito fijo; no hay selector de país. Las comunas/corregimientos se habilitan al incorporar sus límites. No se inventaron polígonos submunicipales. Los perfiles son filtros de trabajo, no cuentas de acceso.</p>
+<h2 id="manuales">Manuales</h2>
+<ul>
+<li><a href="manuales/usuario.html">Manual de usuario</a>: carga del repositorio y recorrido completo.</li>
+<li><a href="manuales/sistema.html">Manual del sistema</a>: instalación, arquitectura, métodos y mantenimiento.</li>
+<li><a href="manuales/datos.html">Diccionario de datos</a>: atributos nativos y formatos de intercambio.</li>
+<li><a href="manuales/alcance.html">Alcance y verificación</a>: adaptación de v5, pruebas y límites.</li>
+</ul>
+<p>Los cuatro manuales incluyen índice, navegación, versión Markdown y formato de impresión. Puede guardarlos como PDF desde el navegador.</p>
+<h2 id="guardar-y-trasladar">Guardar y trasladar</h2>
+<p>El servidor guarda en datos/observatorio.sqlite, con revisión de conflictos y veinte versiones anteriores. <strong>Datos y paquetes → Respaldar todo</strong> produce una copia JSON. <strong>Paquete territorial</strong> genera un ZIP con HTML autónomo, informe, datos, capas GeoJSON, fuentes y manuales. Las acciones se incluyen solo cuando se marca esa opción. Las copias no se sincronizan.</p>
+<p>ABRIR_SIN_SERVIDOR.html permite consultar el ejemplo ya preparado, sin explorar nuevas carpetas. Para editar bases grandes use INICIAR.bat: la cuota del navegador puede ser insuficiente. El ZIP de transferencia excluye el entorno instalado; en otro equipo con Python 3.12 o superior, ejecute INSTALAR.bat una vez con internet y luego INICIAR.bat. Conserve la estructura completa.</p>
+<h2 id="archivos-principales">Archivos principales</h2>
+<div class="table"><table><thead><tr><th>Ubicación</th><th>Contenido</th></tr></thead><tbody>
+<tr><td>app/</td><td>Interfaz, bibliotecas locales, catálogo colombiano y ejemplo de Cali.</td></tr>
+<tr><td>servidor.py, repositorio.py, microplan/</td><td>Servidor, adaptador y lector original de v5.</td></tr>
+<tr><td>datos/</td><td>Instantánea inicial y base operativa cuando se guarda.</td></tr>
+<tr><td>cache/</td><td>Recortes regenerables; nunca sustituye las fuentes originales.</td></tr>
+<tr><td>manuales/</td><td>Documentación de usuario, sistema, datos y alcance.</td></tr>
+<tr><td>referencia/</td><td>Antecedentes, hashes y registro de verificación.</td></tr>
+<tr><td>tests/, herramientas/</td><td>Pruebas y preparación de la distribución.</td></tr>
+</tbody></table></div>
+<h2 id="desarrollo-y-verificacion">Desarrollo y verificación</h2>
+<pre><code>node --test tests/core.test.js tests/repository.test.js
+.venv\Scripts\python.exe tests/test_servidor.py
+.venv\Scripts\python.exe tests/test_repositorio.py
+.venv\Scripts\python.exe herramientas/render_manuales.py
+.venv\Scripts\python.exe herramientas/empaquetar.py</code></pre>
+<p>Después de editar interfaz o manuales, actualice el paquete incrustado con empaquetar.py. Las comprobaciones ejecutadas y sus límites se registran en referencia/VERIFICACION.json.</p>
+<h2 id="alcance">Alcance</h2>
+<p>Prototipo funcional local para un usuario, sin conexión automática a CAC/REPS, cuentas institucionales ni trabajo simultáneo. El catálogo general procede de v5: 33 unidades departamentales y 1.122 municipales; estos conteos no certifican DIVIPOLA vigente. La lectura de Cali usa el límite original de COL.</p>
+<p>El lector de fuentes se reutiliza desde v5; el análisis de red de la interfaz conecta vértices compartidos y no reproduce toda la segmentación de aquel motor. Los raster se detectan, sin análisis raster. Las fichas de evidencia iniciales son borradores vacíos; no se inventaron recomendaciones clínicas. El ensayo sintético permanece opcional y desactivado inicialmente. Las condiciones de uso de los insumos y activos se conservan.</p></main></div></html>

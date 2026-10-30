@@ -1,0 +1,8 @@
+datos/*.sqlite*
+datos/*.json
+__pycache__/
+cache/
+.venv/
+salidas/
+qa/
+*.zip

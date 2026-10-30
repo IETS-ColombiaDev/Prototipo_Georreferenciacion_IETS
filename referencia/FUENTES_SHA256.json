@@ -1,0 +1,67 @@
+[
+  {
+    "archivo_origen": "microplanificacion_v5/vendor/leaflet.js",
+    "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "bytes": 147552
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/vendor/leaflet.css",
+    "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "bytes": 14806
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/vendor/LEAFLET_LICENSE.txt",
+    "sha256": "7083eaea9d234a83c5da7f07701b0eb986fbb437f678754e8fcd760c1ab4028c",
+    "bytes": 1421
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/vendor/fflate.js",
+    "sha256": "462ef8041fc970e3615a20a9dd2b2e3047a073b2da729ef4f02b634bba8b7b83",
+    "bytes": 33044
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/vendor/FFLATE_LICENSE.txt",
+    "sha256": "0a1df3a083d0c010560aa342e87959c8c1070e6fd54545741f083f22d0c8b551",
+    "bytes": 1069
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/geo/adm1/country/COL.geojson.gz",
+    "sha256": "3877be8ebad788fc4eaaafd3cb11f7784b155c66939d552184d98451cb713961",
+    "bytes": 340797
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/geo/adm2_v03/country/COL.geojson.gz",
+    "sha256": "24e14cf84c750ef83ab8615600cb4a1ff6e1f44df0b1bee05d1ae8432e2dc780",
+    "bytes": 1980647
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/README.md",
+    "sha256": "b7da10161f3303e3ef62d7e3128a098a7d45a02fe00cfe8c762b107530431f84",
+    "bytes": 5750
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/requirements.txt",
+    "sha256": "46bb7df7c80600050e4b9e129a27c43c70c266899d0c3c22b2a7507e90482fa8",
+    "bytes": 239
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/microplan/accessibility.py",
+    "sha256": "c98e2e853a94148bbcf54652eb23ffdddb2c94713eae2e814c3379111d68f05e",
+    "bytes": 12849
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/microplan/catalogue.py",
+    "sha256": "42c4f9681681358100d74342e99bd76a09c297c332d0ccdcfdf478546f13361c",
+    "bytes": 4251
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/microplan/geo.py",
+    "sha256": "d8569f7178da7f283fffcdcb811d6b00d1ca0ac5698792dbae27bd5cf4cd17ff",
+    "bytes": 10295
+  },
+  {
+    "archivo_origen": "microplanificacion_v5/microplan/coordinates.py",
+    "sha256": "fc5a111ed25fbae479a6063d6caa0228da2a14767d435e5397b8b33f704e3dd0",
+    "bytes": 5911
+  }
+]

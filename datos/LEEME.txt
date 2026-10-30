@@ -1,0 +1,4 @@
+La modalidad servidor crea observatorio.sqlite en esta carpeta al guardar.
+Cierre el servidor antes de copiar la base para un respaldo físico.
+Los respaldos JSON descargados desde la interfaz pueden restaurarse en otra instancia.
+No incluya la base operativa en un repositorio ni en una distribución del prototipo.

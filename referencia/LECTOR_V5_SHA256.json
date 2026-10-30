@@ -1,0 +1,38 @@
+[
+  {
+    "archivo": "microplan\\accessibility.py",
+    "origen": "microplanificacion_v5/microplan/accessibility.py",
+    "sha256": "c98e2e853a94148bbcf54652eb23ffdddb2c94713eae2e814c3379111d68f05e",
+    "identico": true
+  },
+  {
+    "archivo": "microplan\\catalogue.py",
+    "origen": "microplanificacion_v5/microplan/catalogue.py",
+    "sha256": "42c4f9681681358100d74342e99bd76a09c297c332d0ccdcfdf478546f13361c",
+    "identico": true
+  },
+  {
+    "archivo": "microplan\\coordinates.py",
+    "origen": "microplanificacion_v5/microplan/coordinates.py",
+    "sha256": "fc5a111ed25fbae479a6063d6caa0228da2a14767d435e5397b8b33f704e3dd0",
+    "identico": true
+  },
+  {
+    "archivo": "microplan\\discovery.py",
+    "origen": "microplanificacion_v5/microplan/discovery.py",
+    "sha256": "865fd53b6786d32217b790e6a0fe61b4d64d803b416a3028a007d1a9a63c73a2",
+    "identico": true
+  },
+  {
+    "archivo": "microplan\\sources.py",
+    "origen": "microplanificacion_v5/microplan/sources.py",
+    "sha256": "9c7278a89539c422f3f6ab96d3c2be5b6fcb443ed6ac407560300f62bb41faca",
+    "identico": true
+  },
+  {
+    "archivo": "microplan\\__init__.py",
+    "origen": "microplanificacion_v5/microplan/__init__.py",
+    "sha256": "72c150549abfc754dced710e1a12df2c85638eff966772a3c6b5ff131ee11dd0",
+    "identico": true
+  }
+]

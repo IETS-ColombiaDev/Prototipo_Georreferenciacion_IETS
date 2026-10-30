@@ -1,0 +1,38 @@
+{
+  "fecha": "2026-10-30",
+  "version": "1.0.0",
+  "pruebas": {
+    "JavaScript_motor_y_adaptacion": 35,
+    "servidor_HTTP_SQLite": 11,
+    "repositorio_geografico": 5,
+    "exportacion": 4,
+    "resultado": "55 aprobadas"
+  },
+  "ejemplo": {
+    "repositorio": "D:\\00000-PAHO-OMS\\0-Priorizacion\\COL",
+    "departamento": "76",
+    "municipio": "76001",
+    "capas": 12,
+    "elementos": 49343,
+    "sedes_geograficas": 1091,
+    "localidades": 42
+  },
+  "comprobaciones": [
+    "Lectura directa real y generación de Cali desde interfaz",
+    "Búsqueda de Imbanaco y atributos originales",
+    "Activación de accesibilidad de hospitales y cambio de unidad",
+    "Persistencia del recorte tras recargar",
+    "Geometrías del ejemplo contenidas en el límite de Cali",
+    "Lectores originales verificados contra ZIP de v5",
+    "Importación, filtros, acción, cierre y persistencia ensayados en base de QA separada",
+    "Paquete ZIP real generado desde interfaz mediante servidor, con 12 capas y 1.091 sedes",
+    "Manual de usuario verificado visualmente",
+    "Lectura y guardado de captura del geoportal real de Cali"
+  ],
+  "limites": [
+    "La apertura file:// de la consulta exportada no pudo verificarse visualmente por restricción del navegador de pruebas; contenido y sintaxis se comprueban por separado.",
+    "No se validó uso clínico ni cobertura institucional.",
+    "La exportación grande del navegador se sustituyó por generación en disco.",
+    "Pruebas de desempeño limitadas al recorte de Cali; no acreditan lectura nacional de todas las capas."
+  ]
+}

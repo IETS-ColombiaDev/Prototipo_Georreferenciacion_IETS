@@ -1,0 +1,101 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Diccionario y preparación de datos · IETS</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.75 "Segoe UI",Arial,sans-serif;color:#19374a;background:#f3f7f8}header{background:#123d5a;color:white;padding:32px max(24px,calc((100vw - 1120px)/2));border-bottom:5px solid #21b6b2}header p{margin:0;font-size:12px;letter-spacing:1.4px;text-transform:uppercase}header b{font-size:24px;display:block;margin-top:5px}nav.tabs{background:white;border-bottom:1px solid #dce7ec;display:flex;gap:25px;padding:16px max(24px,calc((100vw - 1120px)/2));flex-wrap:wrap}a{color:#147fae;text-underline-offset:3px}.tabs a{font-size:13px;font-weight:600;text-decoration:none}.layout{max-width:1168px;margin:32px auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:30px;padding:0 24px}.toc{align-self:start;position:sticky;top:25px;font-size:12px;line-height:1.5}.toc b{display:block;margin-bottom:15px;text-transform:uppercase;font-size:10px;letter-spacing:1px;color:#16877f}.toc a{display:block;text-decoration:none;color:#526d7d;padding:6px 0}.paper{background:white;border:1px solid #dce7ec;border-radius:12px;padding:40px;min-width:0}h1{font-size:34px;line-height:1.2;letter-spacing:-.7px;color:#123d5a;margin-top:0}h2{font-size:23px;line-height:1.3;color:#123d5a;margin-top:38px;scroll-margin-top:25px}p{margin:14px 0}li{margin:9px 0}table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.6;margin:22px 0}th,td{padding:12px 14px;border:1px solid #d8e3e7;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:#e7f2f6;color:#173e55}tr:nth-child(even) td{background:#f8fafb}pre{padding:20px;background:#f1f5f7;border-radius:8px;overflow:auto;font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}code{font-family:Consolas,monospace;font-size:.9em}footer{max-width:1120px;margin:30px auto;padding:25px;border-top:1px solid #dce7ec;font-size:12px;color:#637e8a}@media(max-width:800px){.layout{display:block;padding:0 14px}.toc{position:static;margin-bottom:25px}.paper{padding:25px}h1{font-size:28px}table{font-size:11px}th,td{padding:8px}.tabs{gap:12px!important}}@media print{body{background:white;font-size:11pt;line-height:1.55}header,.tabs,.toc,footer{display:none!important}.layout{display:block;margin:0;padding:0}.paper{border:0;padding:0}h1,h2{color:black}h1{font-size:22pt}h2{font-size:15pt;break-after:avoid}p,li{orphans:3;widows:3}table{font-size:9pt}tr{break-inside:avoid}pre{font-size:9pt}@page{margin:20mm}}</style></head><body><header><p>Observatorio IETS · Colombia · Prototipo local 1.0.0</p><b>Georreferenciación para la acción</b></header><nav class="tabs" aria-label="Manuales"><a href="usuario.html">Usuario</a><a href="sistema.html">Sistema</a><a href="datos.html">Datos</a><a href="alcance.html">Alcance y verificación</a><a href="../app/index.html">Abrir aplicación ↗</a></nav><div class="layout"><aside class="toc"><b>En este manual</b><a href="#dos-vias-de-incorporacion">Dos vías de incorporación</a><a href="#formatos-y-convenciones">Formatos y convenciones</a><a href="#metadatos-de-la-fuente">Metadatos de la fuente</a><a href="#campos-comunes-de-puntos">Campos comunes de puntos</a><a href="#catalogos-de-valores">Catálogos de valores</a><a href="#sedes-y-servicios">Sedes y servicios</a><a href="#necesidades-e-indicadores">Necesidades e indicadores</a><a href="#areas-submunicipales">Áreas submunicipales</a><a href="#red-vial">Red vial</a><a href="#poligonos-de-accesibilidad">Polígonos de accesibilidad</a><a href="#acciones-y-evidencia">Acciones y evidencia</a><a href="#que-verifica-la-carga">Qué verifica la carga</a><a href="#ejemplo-de-preparacion">Ejemplo de preparación</a></aside><main class="paper"><h1 id="diccionario-y-preparacion-de-datos">Diccionario y preparación de datos</h1>
+<p>Georreferenciación para la acción · Observatorio IETS · Versión 1.0.0</p>
+<p>Este documento establece el contrato de carga del prototipo. Prepare insumos agregados o institucionales con procedencia, fecha y responsable. La aplicación no geocodifica direcciones ni consulta registros externos; necesita coordenadas o geometrías ya disponibles.</p>
+<h2 id="dos-vias-de-incorporacion">Dos vías de incorporación</h2>
+<p><strong>Repositorio</strong> lee directamente la carpeta de microplanificación: no exige los campos del formato de intercambio descrito más abajo. Conserva los nombres y atributos originales. Añade identificador de fuente, identificador de registro, nombre de consulta, huella de geometría y procedencia. Las tablas de coordenadas se descubren con las reglas de v5 en carpetas de geocodificación. Los vectores sin CRS comprobable se excluyen con una observación.</p>
+<p>Las sedes geográficas no requieren condiciones, servicios ni perfiles para aparecer en el mapa. Esos campos quedan vacíos hasta su caracterización documentada. El estado inicial es Sin verificar. Los indicadores de localidades quedan nulos. La fecha de modificación de archivo no se presenta como fecha de corte; esta permanece sin informar.</p>
+<p><strong>Datos y paquetes</strong> incorpora registros específicos del Observatorio mediante CSV/GeoJSON normalizados. Para esta segunda vía se aplican los campos y validaciones siguientes. Su límite es 15 MB y 15.000 registros; no corresponde al límite de lectura directa del repositorio.</p>
+<h2 id="formatos-y-convenciones">Formatos y convenciones</h2>
+<p>Los puntos se cargan como CSV UTF-8 o GeoJSON FeatureCollection. Las áreas, vías y polígonos de accesibilidad se cargan como GeoJSON. El sistema de coordenadas es EPSG:4326, con longitud antes de latitud y punto como separador decimal. No incluya CRS proyectado en un GeoJSON destinado a esta interfaz.</p>
+<p>CSV admite coma o punto y coma como delimitador, campos entre comillas, comillas duplicadas y saltos de línea dentro de un campo. Los encabezados deben ser únicos y cada fila debe tener el mismo número de columnas. Los campos multivalor se separan con |. Conserve los códigos como texto, incluidos ceros iniciales.</p>
+<p>La carga admite hasta 15 MB y 15.000 registros por archivo. La base de servidor admite un estado JSON de hasta 120 MB; este límite no constituye una prueba de desempeño para cualquier geometría. Divida insumos grandes y reduzca su complejidad de forma documentada.</p>
+<h2 id="metadatos-de-la-fuente">Metadatos de la fuente</h2>
+<div class="table"><table><thead><tr><th>Campo del formulario</th><th>Regla</th></tr></thead><tbody>
+<tr><td>Nombre</td><td>Título comprensible del conjunto. Obligatorio.</td></tr>
+<tr><td>Procedencia / referencia</td><td>Institución, documento, archivo o URL que permita identificar el origen. Obligatorio.</td></tr>
+<tr><td>Fecha de corte</td><td>Fecha válida AAAA-MM-DD de la información. Obligatoria.</td></tr>
+<tr><td>Versión</td><td>Identificador de la entrega del insumo. Obligatorio.</td></tr>
+<tr><td>Responsable</td><td>Persona o unidad responsable del conjunto. Obligatorio.</td></tr>
+<tr><td>Condiciones de uso</td><td>Licencia, autorización o limitación de uso. Obligatorio.</td></tr>
+<tr><td>Cobertura</td><td>Territorios, servicios, periodos y límites de completitud conocidos. Recomendada.</td></tr>
+</tbody></table></div>
+<p>La aplicación genera un id de fuente y lo registra en source_id de cada registro aceptado. También conserva nombre del archivo, fecha de validación, número de aceptados y observaciones. demo=false significa que el usuario incorporó el registro; no certifica su carácter oficial, veracidad o validación científica.</p>
+<h2 id="campos-comunes-de-puntos">Campos comunes de puntos</h2>
+<div class="table"><table><thead><tr><th>Campo</th><th>Tipo y regla</th><th>Ejemplo</th></tr></thead><tbody>
+<tr><td>id</td><td>Texto único dentro de la colección. Obligatorio.</td><td>SEDE-001</td></tr>
+<tr><td>name</td><td>Nombre legible. Obligatorio.</td><td>Sede del ejercicio</td></tr>
+<tr><td>department</td><td>Código de dos caracteres del catálogo incluido. Obligatorio.</td><td>76</td></tr>
+<tr><td>municipality</td><td>Código de cinco caracteres compatible con department. Obligatorio.</td><td>76001</td></tr>
+<tr><td>area</td><td>Id de área cargada o etiqueta de ensayo. Opcional.</td><td>AREA-001</td></tr>
+<tr><td>lon</td><td>Longitud numérica. Obligatoria en CSV.</td><td>-76.531</td></tr>
+<tr><td>lat</td><td>Latitud numérica. Obligatoria en CSV.</td><td>3.470</td></tr>
+<tr><td>conditions</td><td>Uno o más valores admitidos separados por</td><td>. Obligatorio.</td><td>Diabetes|Hipertensión</td></tr>
+<tr><td>services</td><td>Uno o más servicios separados por</td><td>. Obligatorio.</td><td>Seguimiento ambulatorio</td></tr>
+<tr><td>profiles</td><td>Uno o más perfiles separados por</td><td>. Obligatorio.</td><td>Medicina|Enfermería</td></tr>
+</tbody></table></div>
+<p>En GeoJSON, lon y lat se toman de la geometría Point. Los demás campos van dentro de properties. No hay asignación automática de municipio ni de comuna. El punto debe pertenecer al municipio declarado según los límites de referencia. Si area se refiere a un polígono incorporado, se comprueba también pertenencia y municipio del área. Las etiquetas de ensayo no tienen geometría oficial para esa comprobación.</p>
+<h2 id="catalogos-de-valores">Catálogos de valores</h2>
+<div class="table"><table><thead><tr><th>Campo</th><th>Valores admitidos</th></tr></thead><tbody>
+<tr><td>conditions</td><td>Diabetes; Hipertensión; Cáncer; Todas las ECNT</td></tr>
+<tr><td>services</td><td>Seguimiento ambulatorio; Medicamentos; Oncología; Laboratorio; Rehabilitación</td></tr>
+<tr><td>profiles</td><td>Coordinación territorial; Medicina; Enfermería; Farmacia; Gestión de servicios</td></tr>
+<tr><td>status de sede</td><td>Operativa; Capacidad limitada; No operativa; Sin verificar</td></tr>
+<tr><td>status de acción</td><td>Pendiente; En curso; Bloqueada; Cerrada</td></tr>
+<tr><td>Estado editorial</td><td>Borrador; En revisión; Revisión registrada</td></tr>
+<tr><td>unit de accesibilidad</td><td>min; h; s; km; m</td></tr>
+</tbody></table></div>
+<p>Use los textos exactos, incluidas tildes. Todas las ECNT permite que un registro resulte compatible con cualquiera de las condiciones individuales del filtro. Los servicios y perfiles deben declararse; no se infieren a partir del nombre de una sede.</p>
+<h2 id="sedes-y-servicios">Sedes y servicios</h2>
+<p>Además de los campos comunes, facilities requiere status con uno de los cuatro estados. notes es una observación libre opcional. Esta versión utiliza una fila por sede con lista de servicios; el estado funcional aplica al registro completo. Si servicios de una misma institución tienen estados distintos, represéntelos con identificadores diferentes y nombres que indiquen el servicio, documentando esa desagregación.</p>
+<p>El conteo de sedes es un conteo de registros. No deduplica instituciones por nombre o proximidad ni calcula camas, capacidad o cupos. El control de duplicados usa id. Los registros ya existentes no se sobrescriben durante una carga.</p>
+<h2 id="necesidades-e-indicadores">Necesidades e indicadores</h2>
+<div class="table"><table><thead><tr><th>Campo adicional de origins</th><th>Definición en el prototipo</th></tr></thead><tbody>
+<tr><td>gap</td><td>Porcentaje de brecha de continuidad, entre 0 y 100, o vacío.</td></tr>
+<tr><td>barrier</td><td>Porcentaje de barrera reportada, entre 0 y 100, o vacío.</td></tr>
+<tr><td>disruption</td><td>Porcentaje de interrupción del servicio, entre 0 y 100, o vacío.</td></tr>
+<tr><td>indicator_note</td><td>Descripción de la población, numerador, denominador, método, periodo y límites.</td></tr>
+</tbody></table></div>
+<p>Los tres porcentajes son insumos del índice exploratorio. Deben representar unidades y poblaciones comparables. La interfaz no calcula automáticamente esos porcentajes ni verifica sus denominadores. Documente en indicator_note cómo se obtuvieron y conserve el soporte externo. Un vacío se mantiene como nulo; no se convierte en cero. Cero significa un valor observado explícitamente en el conjunto.</p>
+<p>La fila representa un punto de necesidad territorial o institucional, no una persona. No se suministran nombres, documentos o direcciones de pacientes en la distribución. No use un centroide como origen de viaje sin un fundamento explícito en el conjunto.</p>
+<h2 id="areas-submunicipales">Áreas submunicipales</h2>
+<p>areas admite Polygon o MultiPolygon. properties debe contener id, name, department y municipality. Los anillos deben estar cerrados y tener al menos cuatro posiciones. Puede representar comuna, corregimiento o área de análisis, con un nombre que haga clara su naturaleza.</p>
+<p>La carga comprueba códigos, estructura, rangos de coordenadas y cierre de anillos. No comprueba exhaustivamente autointersecciones, superposiciones, huecos, contención de todo el polígono en el municipio ni topología entre áreas. Verifique estos aspectos con una herramienta geográfica antes de incorporar el archivo. No mezcle límites de versiones diferentes sin documentarlo.</p>
+<h2 id="red-vial">Red vial</h2>
+<p>roads admite LineString o MultiLineString. Cada registro necesita id, name, department y municipality. bridge, tunnel y layer son opcionales. Declare bridge=no, tunnel=no y layer=0 únicamente cuando corresponda a la fuente. Un valor explícito de puente/túnel o una capa diferente de cero excluye el segmento del cálculo.</p>
+<p>La red debe estar segmentada en los cruces válidos con vértices compartidos. La aplicación no divide segmentos en intersecciones visuales ni conecta automáticamente un punto al interior de una línea. Ajusta cada punto al vértice más cercano hasta 500 m. El redondeo de vértices a seis decimales puede unir posiciones muy cercanas; revise la resolución y la calidad del insumo.</p>
+<p>Las vías se filtran por el territorio declarado en sus atributos; no se recortan geométricamente al ámbito. Una vía que atraviese varios municipios requiere preparación apropiada del insumo. El recorrido no modela restricciones de sentido, tráfico, seguridad, estado real ni tiempos.</p>
+<h2 id="poligonos-de-accesibilidad">Polígonos de accesibilidad</h2>
+<div class="table"><table><thead><tr><th>Campo de properties</th><th>Regla</th></tr></thead><tbody>
+<tr><td>id y name</td><td>Identificación única y nombre legible.</td></tr>
+<tr><td>department y municipality</td><td>Códigos compatibles con el catálogo.</td></tr>
+<tr><td>service</td><td>Un servicio del catálogo.</td></tr>
+<tr><td>threshold</td><td>Umbral numérico positivo.</td></tr>
+<tr><td>unit</td><td>min, h, s, km o m. Se conserva sin conversión automática.</td></tr>
+</tbody></table></div>
+<p>La geometría debe ser Polygon o MultiPolygon y los umbrales deben formar una serie comparable para el mismo servicio y fuente. Declare en los metadatos método, modo de viaje, unidad, condiciones y alcance. El prototipo no valida que los polígonos estén correctamente anidados ni que su modelación sea apropiada; revise esos supuestos antes del uso.</p>
+<p>El intervalo se deriva de los umbrales de la misma fuente, servicio y unidad. No mezcle fuentes en una serie ni compare minutos y kilómetros como si fueran la misma medida. Un punto fuera de todos los polígonos queda sin intervalo disponible; no se extrapola un tiempo.</p>
+<h2 id="acciones-y-evidencia">Acciones y evidencia</h2>
+<p>Las acciones se crean en formularios y conservan id, título, territorio, condición, servicio, perfil, problema, alternativas, criterio, responsable, plazo, estado y verificación. Las referencias originId, facilityId y evidenceId son opcionales. context guarda los filtros, pesos y versiones de fuentes al crear. history registra los cambios de contenido y estado.</p>
+<p>Las fichas de evidencia contienen título, pregunta, población/contexto, alternativa, resultados, diseño/métodos, certeza, aplicabilidad, síntesis, referencia, revisor, fechas, versión y destinatarios. La revisión editorial es un registro local, sin firma ni verificación de identidad. Las versiones previas se conservan en history.</p>
+<h2 id="que-verifica-la-carga">Qué verifica la carga</h2>
+<div class="table"><table><thead><tr><th>Comprobación</th><th>Comportamiento</th></tr></thead><tbody>
+<tr><td>Metadatos obligatorios y fecha válida</td><td>Rechaza si faltan o son inválidos.</td></tr>
+<tr><td>Id duplicado en archivo o colección</td><td>Rechaza la carga completa.</td></tr>
+<tr><td>Código municipal y departamental</td><td>Rechaza combinaciones incompatibles con el catálogo incluido.</td></tr>
+<tr><td>Puntos sin coordenadas, fuera de Colombia o municipio</td><td>Rechaza y señala el registro.</td></tr>
+<tr><td>Servicio, condición, perfil o estado desconocido</td><td>Rechaza y solicita valores del diccionario.</td></tr>
+<tr><td>Porcentajes fuera de 0–100</td><td>Rechaza. Los vacíos se mantienen nulos.</td></tr>
+<tr><td>Geometría no admitida o anillo abierto</td><td>Rechaza y señala el registro.</td></tr>
+<tr><td>Validez topológica completa y calidad científica</td><td>Requiere revisión externa; no se certifica automáticamente.</td></tr>
+</tbody></table></div>
+<p>No se aceptan parcialmente archivos con errores. El informe de validación muestra hasta treinta mensajes en pantalla para facilitar la corrección. La base previa permanece sin cambios hasta que una carga sin errores se incorpora explícitamente.</p>
+<h2 id="ejemplo-de-preparacion">Ejemplo de preparación</h2>
+<ol>
+<li>Descargue la plantilla correspondiente en Datos y paquetes.</li>
+<li>Reemplace la fila ilustrativa, conservando encabezados y códigos como texto.</li>
+<li>Confirme que longitud y latitud corresponden a EPSG:4326 y al municipio.</li>
+<li>Declare listas de condiciones, servicios y perfiles con |, sin inventar equivalencias.</li>
+<li>Complete los metadatos, incluidos corte y límites de cobertura.</li>
+<li>Valide, corrija errores e incorpore; revise en el mapa y una ficha.</li>
+<li>Exporte un respaldo y conserve el archivo de origen autorizado junto a sus metadatos.</li>
+</ol></main></div><footer>Observatorio IETS · Documentación de transferencia · 30 de octubre de 2026 · Puede imprimir este manual desde el navegador.</footer></body></html>
